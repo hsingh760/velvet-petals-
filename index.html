@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Velvet Petals — Fresh Flowers Toronto</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --rose:#c94a82;
+      --muted:#6b6b6b;
+      --card-bg: rgba(255,255,255,0.75);
+      --page-pad: 20px;
+    }
+    html,body{height:100%;margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+    body{
+      background: linear-gradient(135deg, #fff6fb 0%, #ffeef6 40%, #fffaf0 100%);
+      color:#333;
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      padding:var(--page-pad);
+    }
+
+    /* Header / logo */
+    .container{max-width:980px;margin:0 auto;}
+    header{display:flex;align-items:center;gap:18px;padding:28px 0;}
+    .logo{
+      display:flex;align-items:center;gap:12px;
+    }
+    .logo svg{width:56px;height:56px;flex:0 0 56px;}
+    .brand{
+      line-height:1;
+    }
+    .brand h1{
+      margin:0;font-family:'Great Vibes',cursive;font-size:42px;color:var(--rose);letter-spacing:0.5px;
+    }
+    .brand p{margin:0;font-size:14px;color:var(--muted);}
+
+    main{background:linear-gradient(180deg, rgba(255,255,255,0.8), rgba(255,255,255,0.6)); padding:32px;border-radius:18px;box-shadow:0 8px 30px rgba(0,0,0,0.06);}
+
+    /* Products grid */
+    .products{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:18px;margin:24px 0 40px;}
+    .card{background:var(--card-bg);padding:18px;border-radius:14px; text-align:center; border:1px solid rgba(200,150,170,0.15);}
+    .card h3{margin:8px 0;font-size:18px;color:#a63062;}
+    .card p{margin:6px 0;color:var(--muted);font-size:13px;}
+
+    /* Inquiry form */
+    .inquiry{background:rgba(255,255,255,0.85); padding:22px;border-radius:14px;margin-bottom:18px;}
+    .inquiry h2{margin:0 0 12px;color:#9e325f;}
+    .field{display:flex;flex-direction:column;margin-bottom:12px;}
+    .field input,.field textarea{
+      padding:12px;border-radius:10px;border:1px solid #e7dfe4;font-size:14px;
+      outline:none;
+    }
+    .field input:focus,.field textarea:focus{box-shadow:0 0 0 4px rgba(201,128,162,0.12);border-color:var(--rose);}
+    .btn{
+      display:inline-block;background:linear-gradient(90deg,var(--rose),#b8436f);color:white;padding:12px 18px;border-radius:12px;border:none;font-weight:600;cursor:pointer;
+    }
+
+    footer{text-align:center;padding:18px 0;color:var(--muted);font-size:14px;}
+    .small{font-size:13px;color:#7a7a7a;margin-top:6px;}
+
+    /* responsive tweaks */
+    @media (max-width:640px){ .brand h1{font-size:32px;} header{gap:10px;} }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo" aria-hidden="true">
+        <!-- Simple petal SVG logo - lightweight -->
+        <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Velvet Petals logo">
+          <path d="M32 4c8 0 14 6 14 14S32 40 32 40s-14-18-14-22S24 4 32 4z" fill="#f7d9e5"/>
+          <path d="M32 4c6 0 11 5 11 11s-11 20-11 20S21 19 21 15 26 4 32 4z" fill="#e9a6c4"/>
+        </svg>
+      </div>
+      <div class="brand">
+        <h1>Velvet Petals</h1>
+        <p>Serving the Greater Toronto Area &amp; Durham Region</p>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <p style="margin:0;color:#6d4756;font-weight:600;">Fresh seasonal arrangements — handcrafted with love. Inquire for pricing.</p>
+
+        <div class="products" aria-label="Products">
+          <div class="card"><h3>Roses</h3><p>Available — inquire for price</p></div>
+          <div class="card"><h3>Tulips</h3><p>Available — inquire for price</p></div>
+          <div class="card"><h3>Lilies</h3><p>Available — inquire for price</p></div>
+          <div class="card"><h3>Bouquets</h3><p>Available — inquire for price</p></div>
+          <div class="card"><h3>Event Arrangements</h3><p>Available — inquire for price</p></div>
+          <div class="card"><h3>Gift Boxes</h3><p>Available — inquire for price</p></div>
+        </div>
+      </section>
+
+      <section class="inquiry" aria-labelledby="inquiry-title">
+        <h2 id="inquiry-title">Send Us an Inquiry</h2>
+        <form id="inquiryForm">
+          <div class="field">
+            <input id="name" name="name" type="text" placeholder="Your name" required>
+          </div>
+          <div class="field">
+            <input id="email" name="email" type="email" placeholder="Your email" required>
+          </div>
+          <div class="field">
+            <textarea id="message" name="message" rows="5" placeholder="Describe your order, date, delivery address or special requests..." required></textarea>
+          </div>
+
+          <!-- Two submit options: open mail client (default) or send via Formspree if you set it up -->
+          <div style="display:flex;gap:10px;flex-wrap:wrap;">
+            <button type="submit" class="btn">Open Email App</button>
+            <button type="button" id="formspreeBtn" class="btn" style="background:#7a3b61;">Send without Email App</button>
+          </div>
+
+          <p class="small">We’ll respond within 24 hours. Or contact us: 📞 <strong>437-663-2163</strong> | ✉️ <strong>velvetpetalbouquet@gmail.com</strong></p>
+        </form>
+      </section>
+
+    </main>
+
+    <footer>
+      <div>© <span id="year"></span> Velvet Petals — All Rights Reserved</div>
+    </footer>
+  </div>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // On submit: build a mailto: link so user's email client opens with pre-filled details
+    const form = document.getElementById('inquiryForm');
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      const name = encodeURIComponent(document.getElementById('name').value.trim());
+      const email = encodeURIComponent(document.getElementById('email').value.trim());
+      const message = encodeURIComponent(document.getElementById('message').value.trim());
+
+      const to = 'velvetpetalbouquet@gmail.com';
+      const subject = encodeURIComponent('Flower inquiry from ' + name);
+      const body = encodeURIComponent('Name: ' + decodeURIComponent(name) + '\\nEmail: ' + decodeURIComponent(email) + '\\n\\nMessage:\\n' + decodeURIComponent(message));
+      // Open the user's email client
+      window.location.href = `mailto:${to}?subject=${subject}&body=${body}`;
+    });
+
+    // Optional: Formspree quick instruction if you want "Send without Email App"
+    document.getElementById('formspreeBtn').addEventListener('click', function(){
+      alert('To enable server-side sending (customers do not need an email app), sign up for Formspree (https://formspree.io), create a form endpoint, then replace the fetch URL in the instructions I will give you. Would you like those steps?');
+    });
+  </script>
+</body>
+</html>
